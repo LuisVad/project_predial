@@ -97,11 +97,9 @@
             <ul class="nav">
                 <li><a href="#" onclick="showDiv('datosGenerales')">Datos Generales</a></li>
                 <li><a href="#" onclick="showDiv('superficies')">Superficies</a></li>
-                <li><a href="#" onclick="showDiv('diferencias')">Diferencias</a></li>
+                <li><a href="#" onclick="showDiv('diferencias')">Diferencias y Copropietarios</a></li>
                 <li><a href="#" onclick="showDiv('avaluos')">Avaluos</a></li>
-                <li><a href="#" onclick="showDiv('condonaciones')">Condonaciones</a></li>
-                <li><a href="#" onclick="showDiv('movimientos')">Movimientos</a></li>
-                <li><a href="#" onclick="showDiv('recibos')">Recibos</a></li>
+                <li><a href="#" onclick="showDiv('documentos')">Documentos Fiscales</a></li>
             </ul>
 
             <div id="datosGenerales" class="cards" style="max-width: 1800px; max-height: auto; overflow: auto;">

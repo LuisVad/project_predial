@@ -94,7 +94,7 @@
             <li class="p-2 hover:bg-gray-700" onclick="toggleCobranza(event)">Cobranza
                 <ul class="subsubmenu">
                     <li class="p-2 hover:bg-gray-500"><a href="{{ route('recibos_predial') }}">Recibos de Predial</a></li>
-                    <li class="p-2 hover:bg-gray-500"><a href="#">Recibos de Convenios</a></li>
+                    <li class="p-2 hover:bg-gray-500"><a href="{{ route('recibos_convenios') }}">Recibos de Convenios</a></li>
                     <li class="p-2 hover:bg-gray-500"><a href="#">Póliza de Dependencias</a></li>
                 </ul>
             </li>

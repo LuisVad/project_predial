@@ -26,3 +26,7 @@ Route::get('/rezagos', function () {
 Route::get('/recibos_predial', function () {
     return view('src.cobranza.recibos_predial'); // Especifica la carpeta 'predial'
 })->name('recibos_predial');
+
+Route::get('/recibos_convenios', function () {
+    return view('src.cobranza.recibos_convenios'); // Especifica la carpeta 'predial'
+})->name('recibos_convenios');
