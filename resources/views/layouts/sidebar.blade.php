@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="es">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Menú Desplegable</title>
-    <style>
+<!-- resources/views/layouts/sidebar.blade.php -->
+<style>
         .subsubmenu {
             display: none;
             /* Ocultar submenús por defecto */
@@ -76,54 +70,50 @@
             text-anchor: 10px;
             /* Esta propiedad no es válida en CSS */
         }
-    </style>
-</head>
+</style>
 
-<body>
-    <div class="w-64 h-screen bg-gray-800 text-white">
-        <ul class="menu">
-                <ul class="submenu">
-                    <li class="p-2 hover:bg-gray-600" onclick="toggleSubmenu(event)">Padrón
-                        <ul class="subsubmenu">
-                            <li class="p-2 hover:bg-gray-500"><a href="{{ route('consulta_predios') }}">Consulta de Predios</a></li>
-                            <li class="p-2 hover:bg-gray-500"><a href="{{ route('modificacion_predios') }}">Modificación de Predios</a></li>
-                        </ul>
-                    </li>
-                </ul>
+<aside id="sidebar" class="w-64 h-screen bg-gray-800 text-white">
+    <ul class="menu">
+        <li class="p-2 hover:bg-gray-600" onclick="toggleSubmenu(event)">Padrón
+            <ul class="subsubmenu">
+                <li class="p-2 hover:bg-gray-500"><a href="{{ route('consulta_predios') }}">Consulta de Predios</a></li>
+                <li class="p-2 hover:bg-gray-500"><a href="{{ route('modificacion_predios') }}">Modificación de Predios</a></li>
+            </ul>
+        </li>
 
-            <li class="p-2 hover:bg-gray-700" onclick="toggleCobranza(event)">Cobranza
-                <ul class="subsubmenu">
-                    <li class="p-2 hover:bg-gray-500"><a href="{{ route('recibos_predial') }}">Recibos de Predial</a></li>
-                    <li class="p-2 hover:bg-gray-500"><a href="#">Recibos de Convenios</a></li>
-                    <li class="p-2 hover:bg-gray-500"><a href="#">Póliza de Dependencias</a></li>
-                </ul>
-            </li>
+        <li class="p-2 hover:bg-gray-700" onclick="toggleCobranza(event)">Cobranza
+            <ul class="subsubmenu">
+                <li class="p-2 hover:bg-gray-500"><a href="{{ route('recibos_predial') }}">Recibos de Predial</a></li>
+                <li class="p-2 hover:bg-gray-500"><a href="#">Recibos de Convenios</a></li>
+                <li class="p-2 hover:bg-gray-500"><a href="#">Póliza de Dependencias</a></li>
+            </ul>
+        </li>
 
-            <li class="p-2 hover:bg-gray-700" onclick="toggleGestion(event)">Gestión
-                <ul class="subsubmenu">
-                    <li class="p-2 hover:bg-gray-500"><a href="#">Generación de Padrones</a></li>
-                    <li class="p-2 hover:bg-gray-500"><a href="#">Estados de Cuenta</a></li>
-                    <li class="p-2 hover:bg-gray-500"><a href="#">Constancia de No Adeudo</a></li>
-                    <li class="p-2 hover:bg-gray-500"><a href="{{ route('rezagos') }}">Reportes de Rezagos</a></li>
-                    <li class="p-2 hover:bg-gray-500"><a href="#">Descuentos y Condonaciones</a></li>
-                    <li class="p-2 hover:bg-gray-500"><a href="#">Convenios</a></li>
-                    <li class="p-2 hover:bg-gray-500"><a href="#">Documentos fiscales</a></li>
-                </ul>
-            </li>
+        <li class="p-2 hover:bg-gray-700" onclick="toggleGestion(event)">Gestión
+            <ul class="subsubmenu">
+                <li class="p-2 hover:bg-gray-500"><a href="#">Generación de Padrones</a></li>
+                <li class="p-2 hover:bg-gray-500"><a href="#">Estados de Cuenta</a></li>
+                <li class="p-2 hover:bg-gray-500"><a href="#">Constancia de No Adeudo</a></li>
+                <li class="p-2 hover:bg-gray-500"><a href="{{ route('rezagos') }}">Reportes de Rezagos</a></li>
+                <li class="p-2 hover:bg-gray-500"><a href="#">Descuentos y Condonaciones</a></li>
+                <li class="p-2 hover:bg-gray-500"><a href="#">Convenios</a></li>
+                <li class="p-2 hover:bg-gray-500"><a href="#">Documentos fiscales</a></li>
+            </ul>
+        </li>
 
-            <li class="p-2 hover:bg-gray-700" onclick="toggleAnalisis(event)">Análisis
-                <ul class="subsubmenu">
-                    <li class="p-2 hover:bg-gray-500"><a href="#">Análisis Global</a></li>
-                    <li class="p-2 hover:bg-gray-500"><a href="#">Análisis por Zona</a></li>
-                    <li class="p-2 hover:bg-gray-500"><a href="#">Análisis Todas las Zonas</a></li>
-                </ul>
-            </li>
+        <li class="p-2 hover:bg-gray-700" onclick="toggleAnalisis(event)">Análisis
+            <ul class="subsubmenu">
+                <li class="p-2 hover:bg-gray-500"><a href="#">Análisis Global</a></li>
+                <li class="p-2 hover:bg-gray-500"><a href="#">Análisis por Zona</a></li>
+                <li class="p-2 hover:bg-gray-500"><a href="#">Análisis Todas las Zonas</a></li>
+            </ul>
+        </li>
 
-            <li class="p-2 hover:bg-gray-700">Utilerías</li>
-        </ul>
-    </div>
+        <li class="p-2 hover:bg-gray-700">Utilerías</li>
+    </ul>
+</aside>
 
-    <script>
+<script>
         function togglePredial(event) {
             event.stopPropagation(); // Evitar que el evento se propague
             const submenu = event.currentTarget.querySelector('.subsubmenu');
@@ -156,7 +146,5 @@
             const submenu = event.currentTarget.querySelector('.subsubmenu');
             submenu.classList.toggle('active'); // Alternar clase 'active'
         }
-    </script>
-</body>
+</script>
 
-</html>

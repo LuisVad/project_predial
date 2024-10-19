@@ -1,3 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* public/css/app.css */
+.hidden {
+    display: none;
+}
+
+#sidebar {
+    transition: transform 0.3s ease;
+}
+
+#sidebar.hidden {
+    transform: translateX(-100%); /* Ocultar el sidebar fuera de vista */
+}
