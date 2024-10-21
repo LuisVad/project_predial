@@ -109,7 +109,20 @@
             </ul>
         </li>
 
-        <li class="p-2 hover:bg-gray-700">Utilerías</li>
+        <li class="p-2 hover:bg-gray-700" onclick="toggleUtilerias(event)">Utilerias
+            <ul class="subsubmenu">
+                <li class="p-2 hover:bg-gray-500"><a href="#">Cambiar contraseña</a></li>
+                <li class="p-2 hover:bg-gray-500"><a href="#">Manuales</a></li>
+                <li class="p-2 hover:bg-gray-500">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Cerrar Sesión</a>
+                </li>
+            </ul>
+        </li>
+        
+        
     </ul>
 </aside>
 
@@ -142,6 +155,12 @@
         }
 
         function toggleAnalisis(event) {
+            event.stopPropagation(); // Evitar que el evento se propague
+            const submenu = event.currentTarget.querySelector('.subsubmenu');
+            submenu.classList.toggle('active'); // Alternar clase 'active'
+        }
+
+        function toggleUtilerias(event) {
             event.stopPropagation(); // Evitar que el evento se propague
             const submenu = event.currentTarget.querySelector('.subsubmenu');
             submenu.classList.toggle('active'); // Alternar clase 'active'
