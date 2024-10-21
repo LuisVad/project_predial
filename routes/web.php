@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -42,3 +43,12 @@ Route::get('/register', [LoginController::class, 'showRegisterForm'])->name('reg
 
 // Ruta para procesar el registro
 Route::post('/register', [LoginController::class, 'register'])->name('register');
+
+
+// Route::get('/cambiar-contrasena', [AuthController::class, 'showChangePasswordForm'])->name('cambiar_contrasena');
+
+Route::get('/cambiar_password', function () {
+    return view('src.utilerias.change_password'); // Especifica la carpeta 'predial'
+})->name('cambiar_password');
+
+Route::post('/cambiar_contrasena', [AuthController::class, 'changePassword'])->name('cambiar_contrasena');
