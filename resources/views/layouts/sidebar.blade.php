@@ -178,11 +178,7 @@
             </ul>
         </div>
 
-        <!-- Item Utilerías -->
-        <div class="p-3 hover:bg-opacity-80 text-xs">
-            <i class="fas fa-cogs mr-2"></i> Utilerías
-        </div>
-    </nav>
+
 </aside>
 
 <script>
