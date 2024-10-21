@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -30,3 +31,6 @@ Route::get('/recibos_predial', function () {
 Route::get('/recibos_convenios', function () {
     return view('src.cobranza.recibos_convenios'); // Especifica la carpeta 'predial'
 })->name('recibos_convenios');
+
+Route::post('/login', [LoginController::class, 'login'])->name('src.index');
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.form');
