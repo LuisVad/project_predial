@@ -23,35 +23,28 @@
             <div class="mt-6 text-amber-900 text-center">
                 <img src="{{ asset('assets/images/Logo_ayala.png') }}" alt="logo" width="750" height="650"
                     class="mx-auto"><br>
-                <h1 class="text-2xl font-semibold mb-4">Inicio de Sesión</h1>
+                <h1 class="text-2xl font-semibold mb-4">Registro de Usuario</h1>
             </div>
 
-            @if (session('success'))
-                <div class="mb-4 text-green-700 bg-green-200 border border-green-300 p-4 rounded">
-                    {{ session('success') }}
-                </div>
-            @endif
-
-            <!-- Mensajes de error -->
-            @if ($errors->any())
-                <div class="mb-4 text-red-600">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
-
-            <form action="{{ route('src.index') }}" method="POST">
+            <form action="{{ route('register') }}" method="POST">
                 @csrf
                 <!-- Usuario Input -->
                 <div class="mb-4 flex items-center border border-amber-800 rounded-md">
                     <span class="material-icons text-amber-800 p-2">person</span>
-                    <input type="text" id="email" name="email"
+                    <input type="text" id="name" name="name"
                         class="w-full border-none rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-amber-800"
                         placeholder="Usuario" autocomplete="off">
                 </div>
+
+                <!-- Email Input -->
+                <div class="mb-4 flex items-center border border-amber-800 rounded-md">
+                    <span class="material-icons text-amber-800 p-2">email</span>
+                    <input type="text" id="email" name="email"
+                        class="w-full border-none rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-amber-800"
+                        placeholder="Correo" autocomplete="off">
+                </div>
+
+
                 <!-- Contraseña Input -->
                 <div class="mb-4 flex items-center border border-amber-800 rounded-md">
                     <span class="material-icons text-amber-800 p-2">lock</span>
@@ -59,23 +52,34 @@
                         class="w-full border-none rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-amber-800"
                         placeholder="Contraseña" autocomplete="off">
                 </div>
-                <!-- Remember Me Checkbox -->
-                <div class="mb-4 flex items-center">
-                    <input type="checkbox" id="remember" name="remember" class="text-amber-800">
-                    <label for="remember" class="text-black ml-2">Recordar Contraseña</label>
+
+                <!-- Rol Select -->
+                <div class="mb-4 flex items-center border border-amber-800 rounded-md">
+                    <span class="material-icons text-amber-800 p-2">supervisor_account</span>
+                    <!-- Puedes agregar un ícono si lo deseas -->
+                    <select id="role_id" name="role_id" required
+                        class="w-full border-none rounded-md py-2 px-3 focus:outline-none focus:ring-2 focus:ring-amber-800">
+                        <option value="">Seleccione un rol</option>
+                        @foreach ($roles as $role)
+                            <option value="{{ $role->id }}">{{ $role->name }}</option>
+                        @endforeach
+                    </select>
+                    @error('role_id')
+                        <div class="text-red-600">{{ $message }}</div>
+                        <!-- Añade una clase para mostrar errores en rojo -->
+                    @enderror
                 </div>
-                <!-- Forgot Password Link -->
-                <div class="mb-6 text-blue-500">
-                    <a href="#" class="hover:underline">¿Olvidaste la contraseña?</a>
-                </div>
+
+
+
                 <!-- Login Button -->
                 <button type="submit"
-                    class="bg-green-800 hover:bg-green-600 text-white font-semibold rounded-md py-2 px-4 w-full">Iniciar
-                    Sesión</button>
+                    class="bg-green-800 hover:bg-green-600 text-white font-semibold rounded-md py-2 px-4 w-full">Registrar
+                    Usuario</button>
             </form>
             <!-- Sign up Link -->
             <div class="mt-6 text-amber-800 text-center">
-                <a href="{{ route('register.form') }}" class="hover:underline">¿Eres nuevo? Regístrate</a>
+                <a href="{{ route('src.index') }}" class="hover:underline">¿Ya tienes cuenta? Inicia sesión</a>
             </div>
         </div>
     </div>

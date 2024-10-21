@@ -7,9 +7,11 @@ Route::get('/', function () {
     return view('auth/login');
 });
 
-Route::post('/index', function () {
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+
+Route::get('/index', function () {
     return view('src/index');
-})->name('src.index');
+})->name('index');
 
 Route::get('/consulta_predios', function () {
     return view('src.predial.consulta_predios'); // Especifica la carpeta 'predial'
@@ -34,3 +36,9 @@ Route::get('/recibos_convenios', function () {
 
 Route::post('/login', [LoginController::class, 'login'])->name('src.index');
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login.form');
+
+// Ruta para mostrar el formulario de registro
+Route::get('/register', [LoginController::class, 'showRegisterForm'])->name('register.form');
+
+// Ruta para procesar el registro
+Route::post('/register', [LoginController::class, 'register'])->name('register');
