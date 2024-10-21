@@ -8,14 +8,9 @@
     <title>@yield('title', 'Página Principal')</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <style>
-        body {
-                font-family: Arial, sans-serif;
-                background-color: #f4f4f4;
-                margin: 0;
-                padding: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+
 </head>
 <body>
     @include('layouts.navbar') <!-- Incluir el navbar -->
@@ -24,7 +19,7 @@
         @include('layouts.sidebar') <!-- Incluir el sidebar -->
 
         <div class="flex-grow p-6">
-            <h1>index xd</h1>
+            <h1>Dashboard</h1>
             @yield('content') <!-- Contenido principal -->
         </div>
     </div>

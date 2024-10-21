@@ -1,10 +1,10 @@
 <!-- resources/views/layouts/navbar.blade.php -->
-<nav class="sticky top-0 z-10 flex w-full flex-wrap items-center justify-between bg-zinc-50 py-2 shadow-dark-mild dark:bg-amber-800 lg:py-4">
+<nav class="sticky top-0 z-10 flex w-full flex-wrap items-center justify-between bg-zinc-50 py-2 shadow-dark-mild lg:py-4">
     <div class="flex w-full flex-wrap items-center justify-between px-3">
         <button id="toggleSidebar" class="ms-5 text-amber-800 p-2"><span class="material-icons text-amber-800 p-2">menu</span></button>
-        <img src="{{ asset('assets/images/Logo_ayala.png') }}" alt="logo" width="250" height="250">
+        <img src="{{ asset('assets/images/Logo_ayala.png') }}" alt="logo" width="180" height="180">
         <div class="flex w-[30%] items-center justify-center">
-            <h1 class="text-center flex-grow"><strong>SISTEMA PREDIAL</strong></h1>
+            <h1 class="text-center flex-grow"><strong></strong></h1>
         </div>
         <div class="ms-5 flex w-[30%] items-center justify-between bg-white">
             <input
